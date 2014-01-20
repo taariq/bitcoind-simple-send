@@ -49,10 +49,11 @@ You will need to allow bitcoind several hours for the 12GB blockchain to downloa
         "timereceived" : 1390160172
     }
 ```
-In this example, we only had one transaction above. We will want to save the "txid" to move to the next step.
+In this example, we only had one transaction above. We will want to save the **"txid" : "75cfdd8cb0bb99bf3eb0f4160f78a2fb27e6bd500ba90e54a9d3d86115fce2ad"** value to move to the next step.
 
 
-**Step 4: Get the transaction components of the last transaction that allowed address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj to receive the 10mBTC in bitcoins.** To receive the transaction details, we need to decode the raw txid from the appropriate transaction hash.
+**Step 4: Get the transaction components of the last transaction that allowed address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj to receive the 10mBTC in bitcoins.** To receive the transaction details, we need to decode the raw **"txid" : "75cfdd8cb0bb99bf3eb0f4160f78a2fb27e6bd500ba90e54a9d3d86115fce2ad"** hash from the transaction with the getrawtransaction bitcoind command.
+
 ```
 # Get the Transaction hash:
 ./bitcoind getrawtransaction 75cfdd8cb0bb99bf3eb0f4160f78a2fb27e6bd500ba90e54a9d3d86115fce2ad
