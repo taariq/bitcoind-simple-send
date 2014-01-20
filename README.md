@@ -125,10 +125,10 @@ This returns the JSON details of the transaction that allowed the address to rec
 ```
 
 **Step 6: Create a new raw transaction that takes the folloing items:**
-* txid: The first transaction id (Tx0) of the last transaction output to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
-* vout: The index of the value output of the last transaction putput to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
-* 2nd Bitcoin address: This is the target bitcoin address to whom we want to send new funds or the 2nd address in our wallet: 18hdQ2b2a48Ap5y7ThvrRraaNXmuSn1tB
-* bitcoin value to send: How much we want to send to the 2nd address. Here, we're going to send 9.9mBTC or 0.0099 BTC.  The remaining 0.0001 BTC will be sent as miner's fees.
+* **txid:** The first transaction id (Tx0) of the last transaction output to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
+* **vout:** The index of the value output of the last transaction putput to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
+* **2nd Bitcoin address:** This is the target bitcoin address to whom we want to send new funds or the 2nd address in our wallet: 18hdQ2b2a48Ap5y7ThvrRraaNXmuSn1tB
+* **A bitcoin amount to send:** How much we want to send to the 2nd address. Here, we're going to send 9.9mBTC or 0.0099 BTC.  The remaining 0.0001 BTC will be sent as miner's fees.
 
 ```
 ./bitcoind createrawtransaction '[{"txid" : "75cfdd8cb0bb99bf3eb0f4160f78a2fb27e6bd500ba90e54a9d3d86115fce2ad", "vout" : 0}]' '{"18hdQ2b2a48Ap5y7ThvrRraaNXmuSn1tB": 0.0099}'
@@ -192,7 +192,7 @@ Will then create a transaction hash:
 ./bitcoind sendrawtransaction 0100000001ade2fc1561d8d3a9540ea90b50bde627fba2780f16f4b03ebf99bbb08cddcf75000000006a473044022051ed66aeee7d48631e410b974c257fddac052cdda4603680831afb261a3ba49202201fb745a58e76ac1da2edfc099755038d407cb4b9016164dd32ef43cf26d0e6c5012103863c4605e63c8b7b5816a11080467849c2722bfc8572a9b642954b788359ae6bffffffff01301b0f00000000001976a9140174d36d9361dcc497478798544e94a14097a97488ac00000000
 ```
 ```
-#Output from bitcoind will be hash of the transaction
+# Output from bitcoind will be hash of the transaction
 fa525bf9c8aca03ad68dec3053da761a202b9ef5ab422faa4d7eb3515bd9acdf
 ```
 
