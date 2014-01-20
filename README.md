@@ -31,7 +31,7 @@ You will need to allow bitcoind several hours for the 12GB blockchain to downloa
 ]
 ```
 
-**Step 3: Send a small amount of money to the first adress you created.** In this example, we created a bitcoin address [14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj](https://blockchain.info/address/14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj) and we sent $10.00 to that address, from our Coinbase account. Bitcoin addresses receive outputs from prior transactions. Therefore, if we want to send money, we will need to send from the address that received the small deposit of 10mBTC (0.10 BTC). To verify that your bitoind server wallet received the 10mBTC you will need to tell bitcoind to retrieve a list of transactions.
+**Step 3: Send a small amount of money to the first adress you created.** In this example, we created a bitcoin address [14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj](https://blockchain.info/address/14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj) and we sent $10.00 to that address, from [our Coinbase wallet](https://coinbase.com/?r=5252e7d6efc9be23cd00008d&utm_campaign=user-referral&src=referral-link). Bitcoin addresses receive outputs from prior transactions. Therefore, if we want to send money, we will need to send from the address that received the small deposit of 10mBTC (0.10 BTC). To verify that your bitoind server wallet received the 10mBTC you will need to tell bitcoind to retrieve a list of transactions.
 ```
 ./bitcoind listtransactions
 [
