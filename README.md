@@ -1,7 +1,7 @@
-bitcoind-simple-send Example
+How-To create and send money writing API calls in bitcoind using the commandline
 ====================
 
-How-To create and send money writing API calls in bitcoind using the commandline
+In this example, we show how we can use bitcoind to create addresses to which we'll send money using the commandline. Our 
 
 **Step 1: Download and install a copy of bitcoind on your server.** You may download a [copy here](http://bitcoin.org/en/download). If you wish to move really quickly, you may clone a copy of the current bitcoin development tree for testing using the following commands.
 
@@ -124,23 +124,26 @@ This returns the JSON details of the transaction that allowed the address to rec
 }
 ```
 
-Step 6: Create a new raw transaction that takes the folloing items:
+**Step 6: Create a new raw transaction that takes the folloing items:**
 	txid: The first transaction id (Tx0) of the last transaction output to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
 	vout: The index of the value output of the last transaction putput to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
 	2nd Bitcoin address: This is the target bitcoin address to whom we want to send new funds or the 2nd address in our wallet: 18hdQ2b2a48Ap5y7ThvrRraaNXmuSn1tB
 	bitcoin value to send: How much we want to send to the 2nd address. Here, we're going to send 9.9mBTC or 0.0099 BTC.  The remaining 0.0001 BTC will be sent as miner's fees.
 
-
+```
 ./bitcoind createrawtransaction '[{"txid" : "75cfdd8cb0bb99bf3eb0f4160f78a2fb27e6bd500ba90e54a9d3d86115fce2ad", "vout" : 0}]' '{"18hdQ2b2a48Ap5y7ThvrRraaNXmuSn1tB": 0.0099}'
+```
 
 Will then create a transaction hash:
 0100000001ade2fc1561d8d3a9540ea90b50bde627fba2780f16f4b03ebf99bbb08cddcf750000000000ffffffff01301b0f00000000001976a9140174d36d9361dcc497478798544e94a14097a97488ac00000000
 
 
-Step 7: Let's add an extra step and decode the transaction hash for the new transaction created so that we can see the components of the new transaction which should include the new ScriptPubKey for allowing funds to be sent to the new address. 
+**Step 7: Let's add an extra step and decode the transaction hash for the new transaction created so that we can see the components of the new transaction which should include the new ScriptPubKey for allowing funds to be sent to the new address.**
 
+```
 ./bitcoind decoderawtransaction 0100000001ade2fc1561d8d3a9540ea90b50bde627fba2780f16f4b03ebf99bbb08cddcf750000000000ffffffff01301b0f00000000001976a9140174d36d9361dcc497478798544e94a14097a97488ac00000000
-
+```
+```
 # The resulting JSON details of the transaction decode command.
 {
     "txid" : "eaea046faaf63bfb45d4ca6871e539e76b1d2d64c3b70905c1055187c0d799e4",
@@ -173,15 +176,15 @@ Step 7: Let's add an extra step and decode the transaction hash for the new tran
         }
     ]
 }
-
-Step 8: Sign the raw transaction. We are running a local version of bitcoind which hosts our wallet and our privatekey. Thus, we can sign this new transaction with one command that thakes the transaction hash the txid, the vou8,t and the ScriptPubKey hash or the txid from the Coinbase wallet transaction we first decoded in Step 5.
-
+```
+**Step 8: Sign the raw transaction.** We are running a local version of bitcoind which hosts our wallet and our privatekey. Thus, we can sign this new transaction with one command that thakes the transaction hash the txid, the vou8,t and the ScriptPubKey hash or the txid from the Coinbase wallet transaction we first decoded in Step 5.
+```
 ./bitcoind signrawtransaction 0100000001ade2fc1561d8d3a9540ea90b50bde627fba2780f16f4b03ebf99bbb08cddcf750000000000ffffffff01301b0f00000000001976a9140174d36d9361dcc497478798544e94a14097a97488ac00000000 '[{"txid" : "75cfdd8cb0bb99bf3eb0f4160f78a2fb27e6bd500ba90e54a9d3d86115fce2ad", "vout" : 0, "scriptPubKey" : "76a914251d35f531d020cb69ab51519fa938e677f03a2188ac"}]'
 {
     "hex" : "0100000001ade2fc1561d8d3a9540ea90b50bde627fba2780f16f4b03ebf99bbb08cddcf75000000006a473044022051ed66aeee7d48631e410b974c257fddac052cdda4603680831afb261a3ba49202201fb745a58e76ac1da2edfc099755038d407cb4b9016164dd32ef43cf26d0e6c5012103863c4605e63c8b7b5816a11080467849c2722bfc8572a9b642954b788359ae6bffffffff01301b0f00000000001976a9140174d36d9361dcc497478798544e94a14097a97488ac00000000",
     "complete" : true
 }
-			
+```			
 
 Step 9: Now, send the rawtransaction to bitcoind to make the first confirmation that the new output should receive the 9mBTC amount.
 ./bitcoind sendrawtransaction 0100000001ade2fc1561d8d3a9540ea90b50bde627fba2780f16f4b03ebf99bbb08cddcf75000000006a473044022051ed66aeee7d48631e410b974c257fddac052cdda4603680831afb261a3ba49202201fb745a58e76ac1da2edfc099755038d407cb4b9016164dd32ef43cf26d0e6c5012103863c4605e63c8b7b5816a11080467849c2722bfc8572a9b642954b788359ae6bffffffff01301b0f00000000001976a9140174d36d9361dcc497478798544e94a14097a97488ac00000000
