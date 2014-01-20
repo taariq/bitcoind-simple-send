@@ -1,4 +1,4 @@
-How-To create and send money writing API calls in bitcoind using the commandline
+How-To create and send money by writing API calls directly to bitcoind using the commandline
 ====================
 
 In this example, we show how we can use bitcoind to create addresses to which we'll send money using the commandline. Our goal is to be able to understand how bitcoind works under the hood. We also want to understand the bitcoin API command set so we can continue to build more complex scripts using bitcoind. 
