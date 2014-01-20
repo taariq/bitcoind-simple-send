@@ -1,7 +1,7 @@
 How-To create and send money writing API calls in bitcoind using the commandline
 ====================
 
-In this example, we show how we can use bitcoind to create addresses to which we'll send money using the commandline. Our 
+In this example, we show how we can use bitcoind to create addresses to which we'll send money using the commandline. Our goal is to be able to understand how bitcoind works.
 
 **Step 1: Download and install a copy of bitcoind on your server.** You may download a [copy here](http://bitcoin.org/en/download). If you wish to move really quickly, you may clone a copy of the current bitcoin development tree for testing using the following commands.
 
@@ -135,8 +135,9 @@ This returns the JSON details of the transaction that allowed the address to rec
 ```
 
 Will then create a transaction hash:
+```
 0100000001ade2fc1561d8d3a9540ea90b50bde627fba2780f16f4b03ebf99bbb08cddcf750000000000ffffffff01301b0f00000000001976a9140174d36d9361dcc497478798544e94a14097a97488ac00000000
-
+```
 
 **Step 7: Let's add an extra step and decode the transaction hash for the new transaction created so that we can see the components of the new transaction which should include the new ScriptPubKey for allowing funds to be sent to the new address.**
 
@@ -186,14 +187,17 @@ Will then create a transaction hash:
 }
 ```			
 
-Step 9: Now, send the rawtransaction to bitcoind to make the first confirmation that the new output should receive the 9mBTC amount.
+**Step 9: Now, send the rawtransaction to bitcoind to make the first confirmation that the new output should receive the 9mBTC amount.**
+```
 ./bitcoind sendrawtransaction 0100000001ade2fc1561d8d3a9540ea90b50bde627fba2780f16f4b03ebf99bbb08cddcf75000000006a473044022051ed66aeee7d48631e410b974c257fddac052cdda4603680831afb261a3ba49202201fb745a58e76ac1da2edfc099755038d407cb4b9016164dd32ef43cf26d0e6c5012103863c4605e63c8b7b5816a11080467849c2722bfc8572a9b642954b788359ae6bffffffff01301b0f00000000001976a9140174d36d9361dcc497478798544e94a14097a97488ac00000000
-
+```
+```
 #Output from bitcoind will be hash of the transaction
 fa525bf9c8aca03ad68dec3053da761a202b9ef5ab422faa4d7eb3515bd9acdf
+```
 
-Step 10: Checkfor the transaction in your bitcoind as confirmed and propogated to the bitcoin network via other nodes. Below, 25 confirmations were received after 1 hour of this transaction behing sent.
-
+**Step 10: Checkfor the transaction in your bitcoind as confirmed and propogated to the bitcoin network via other nodes.** Below, 25 confirmations were received after 1 hour of this transaction behing sent.
+```
 ./bitcoind listtransactions "" 1
 [
     {
@@ -211,3 +215,4 @@ Step 10: Checkfor the transaction in your bitcoind as confirmed and propogated t
         "timereceived" : 1390169296
     }
 ]
+```
