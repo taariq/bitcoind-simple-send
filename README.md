@@ -218,10 +218,11 @@ fa525bf9c8aca03ad68dec3053da761a202b9ef5ab422faa4d7eb3515bd9acdf
 ```
 
 ## References: 
-1. [Original Bitcoin client/API calls list](https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list)
-2. [Jeff Garzik's TxTool](https://github.com/jgarzik/txtool/blob/master/examples/multisig.txt)
-3. [Jeff Garzik's Pyhton Bitcoin Library](https://github.com/jgarzik/python-bitcoinlib/blob/master/bitcoin/script.py)
-4. [Gavin Andresen P2SH Example](https://gist.github.com/gavinandresen/3966071)
-5. [How the Bitcoin protocol actually works](http://www.michaelnielsen.org/ddi/how-the-bitcoin-protocol-actually-works/)
-6. [Transaction Scripts & MultiSig M of N Transactions: A tutorial by Andreas Antonopoulous, Transcribed by Taariq Lewis](https://www.dropbox.com/s/gta94uux5n4p1vy/Bitcoin_Multi-sig-Transactions_Andreas.pptx)
+1. [Video: Transaction Scripts & MultiSig M of N Transactions: A video tutorial by Andreas Antonopoulos](http://www.youtube.com/watch?v=K-ccC9YZ8UI)
+2. [Transaction Scripts & MultiSig M of N Transactions: A video tutorial by Andreas Antonopoulos, Transcribed by Taariq Lewis](https://www.dropbox.com/s/gta94uux5n4p1vy/Bitcoin_Multi-sig-Transactions_Andreas.pptx)
+3. [Original Bitcoin client/API calls list](https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list)
+4. [Jeff Garzik's TxTool](https://github.com/jgarzik/txtool/blob/master/examples/multisig.txt)
+5. [Jeff Garzik's Pyhton Bitcoin Library](https://github.com/jgarzik/python-bitcoinlib/blob/master/bitcoin/script.py)
+6. [How the Bitcoin protocol actually works](http://www.michaelnielsen.org/ddi/how-the-bitcoin-protocol-actually-works/)
 7. [Bitcion Raw Transactions](https://en.bitcoin.it/wiki/Raw_Transactions)
+8. [Gavin Andresen P2SH Example](https://gist.github.com/gavinandresen/3966071)
