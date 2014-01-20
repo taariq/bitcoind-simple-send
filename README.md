@@ -125,10 +125,10 @@ This returns the JSON details of the transaction that allowed the address to rec
 ```
 
 **Step 6: Create a new raw transaction that takes the folloing items:**
-	txid: The first transaction id (Tx0) of the last transaction output to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
-	vout: The index of the value output of the last transaction putput to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
-	2nd Bitcoin address: This is the target bitcoin address to whom we want to send new funds or the 2nd address in our wallet: 18hdQ2b2a48Ap5y7ThvrRraaNXmuSn1tB
-	bitcoin value to send: How much we want to send to the 2nd address. Here, we're going to send 9.9mBTC or 0.0099 BTC.  The remaining 0.0001 BTC will be sent as miner's fees.
+	* txid: The first transaction id (Tx0) of the last transaction output to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
+	* vout: The index of the value output of the last transaction putput to the bitcoin address 14PEzhUMw2BE9FQE1qaJZD4rmSVD4wGRSj
+	* 2nd Bitcoin address: This is the target bitcoin address to whom we want to send new funds or the 2nd address in our wallet: 18hdQ2b2a48Ap5y7ThvrRraaNXmuSn1tB
+	* bitcoin value to send: How much we want to send to the 2nd address. Here, we're going to send 9.9mBTC or 0.0099 BTC.  The remaining 0.0001 BTC will be sent as miner's fees.
 
 ```
 ./bitcoind createrawtransaction '[{"txid" : "75cfdd8cb0bb99bf3eb0f4160f78a2fb27e6bd500ba90e54a9d3d86115fce2ad", "vout" : 0}]' '{"18hdQ2b2a48Ap5y7ThvrRraaNXmuSn1tB": 0.0099}'
