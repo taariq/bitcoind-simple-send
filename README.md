@@ -1,7 +1,7 @@
 How-To create and send money writing API calls in bitcoind using the commandline
 ====================
 
-In this example, we show how we can use bitcoind to create addresses to which we'll send money using the commandline. Our goal is to be able to understand how bitcoind works.
+In this example, we show how we can use bitcoind to create addresses to which we'll send money using the commandline. Our goal is to be able to understand how bitcoind works under the hood. We also want to understand the bitcoin API command set so we can continue to build more complex scripts using bitcoind. 
 
 **Step 1: Download and install a copy of bitcoind on your server.** You may download a [copy here](http://bitcoin.org/en/download). If you wish to move really quickly, you may clone a copy of the current bitcoin development tree for testing using the following commands.
 
@@ -67,7 +67,7 @@ In this example, we only had one transaction above. We will want to save the "tx
 ./bitcoind decoderawtransaction 0100000002709d44963689679d5e0c8a6ba6860830351b253465833ca04ca6e54c0035b239000000008b483045022019648d4105dfc96ce3867291428973433970bdc3b0f64fabf5a77ffd6211ab0b022100f6384a7bcec30c257b6ffb82375b18fda4d0962e0611082c80a1b85b4b26dda901410403a8a3fe0ff5be6ce9ca17d50aaceadf0620255e92a6d235409b5aa5189ae09734539123c00699577b34ff61db2e718e3b7f9fe535a20ce15190b0536d2f8145ffffffff599ee2e4e4a84dc7c20c2111f463f5ef83a566f93051dc9f771212ac24077e02010000008b48304502201d73801dc1de21a97be3092bc813fa52c76296589279d01f2917b207597ae1bc02210099e6ad6bbe3fc8cec6fe289044109264f53cb5394dde5ac192b1050e0e6659ce014104730264b8b1432f75dc31779c945d3241e80eb0b6b8e9c7519960a3893b541c644841c1bfef3b255a08b4fd0a019b504817f240fb49f0fd8ddbbcba5f11ad8767ffffffff0240420f00000000001976a914251d35f531d020cb69ab51519fa938e677f03a2188ac8d5b1500000000001976a914e5ffd53998e1b05139b3fd737a15f51ad535cb7288ac00000000
 ```
 
-This returns the JSON details of the transaction that allowed the address to receive 10mBTC. Notice the value "ScriptPubKey" which contains the bitcoin commands that will allow funds to be released to the Transaction Input that can be matched with the RIPEMD 160 hash of the hash key. This is the encumbrance that Andreas mentions in his presentation on Multisig and bitcoin transactions here: 
+This returns the JSON details of the transaction that allowed the address to receive 10mBTC. Notice the value "ScriptPubKey" which contains the bitcoin commands that will allow funds to be released to the Transaction Input that can be matched with the RIPEMD 160 hash of the hash key. This is the encumbrance that Andreas mentions in his presentation on Multisig and bitcoin transactions [recorded on January 13, 2014](http://www.youtube.com/watch?v=K-ccC9YZ8UI): 
 ```
 {
     "txid" : "75cfdd8cb0bb99bf3eb0f4160f78a2fb27e6bd500ba90e54a9d3d86115fce2ad",
@@ -196,7 +196,7 @@ Will then create a transaction hash:
 fa525bf9c8aca03ad68dec3053da761a202b9ef5ab422faa4d7eb3515bd9acdf
 ```
 
-**Step 10: Checkfor the transaction in your bitcoind as confirmed and propogated to the bitcoin network via other nodes.** Below, 25 confirmations were received after 1 hour of this transaction behing sent.
+**Step 10: Checkfor the transaction in your bitcoind as confirmed and propogated to the bitcoin network via other nodes.** Below, 25 confirmations were received after 1 hour of this transaction being sent, but we only needed to wait 10 minutes for the first confirmation. Each node in the network verifies this transaction commands that we just completed for the "create" and "sign" steps above.
 ```
 ./bitcoind listtransactions "" 1
 [
